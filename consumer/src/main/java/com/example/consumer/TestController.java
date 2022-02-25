@@ -18,23 +18,20 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping
 public class TestController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+	@Autowired
+	private RestTemplate restTemplate;
 
-    @Autowired
-    private EchoService echoService;
+	@Autowired
+	private EchoService echoService;
 
+	@GetMapping("/echo-rest/{str}")
+	public String rest(@PathVariable String str) {
+		return restTemplate.getForObject("http://provider/echo/" + str, String.class);
+	}
 
-    @GetMapping("/echo-rest/{str}")
-    public String rest(@PathVariable String str){
-        return restTemplate.getForObject("http://provider/echo/"+str,String.class);
-    }
-
-    @GetMapping("/echo-feign/{str}")
-    public String feign(@PathVariable String str){
-        return echoService.echo(str);
-    }
-
-
+	@GetMapping("/echo-feign/{str}")
+	public String feign(@PathVariable String str) {
+		return echoService.echo(str);
+	}
 
 }
