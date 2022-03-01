@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      binders: # 需要绑定的rabbitmq的服务信息
+        defaultRabbit:
+          type: rabbit  #消息组件类型
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+                port: 5672
+                username: guest
+                password: guest
+
+      bindings:
+        saveOrderInput:
+          destination: exchange-saveOrder
+          group: saveOrderGroup
+
+

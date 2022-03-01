@@ -1,10 +1,10 @@
-package com.example.amqplog;
+package com.example.amqpproducer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AmqpLogApplicationTests {
+class AmqpProducerApplicationTests {
 
 	@Test
 	void contextLoads() {
