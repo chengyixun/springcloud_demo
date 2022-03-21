@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Version: 1.0
  */
 @FeignClient(value = "provider")
-public interface EchoService {
+public interface EchoServiceFeignClient {
 
 	@RequestMapping(value = "/echo/{str}")
 	String echo(@PathVariable("str") String str);

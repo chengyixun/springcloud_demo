@@ -17,13 +17,14 @@ public class ConsumerApplication {
 		SpringApplication.run(ConsumerApplication.class, args);
 	}
 
-	/**
-	 *
-	 * @return
-	 */
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
 	@Bean
 	@LoadBalanced
-	public RestTemplate restTemplate() {
+	public RestTemplate restTemplateRibbon() {
 		return new RestTemplate();
 	}
 
