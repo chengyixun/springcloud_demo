@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+# 开启openfeign http日志打印
+feign:
+  client:
+    config:
+      # 目标微服务的名称
+      order-service:
+        loggerLevel: full
+
+logging:
+  level:
+    com.jack.userservice.openfeign: debug

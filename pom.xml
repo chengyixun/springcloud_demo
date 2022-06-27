@@ -21,8 +21,10 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>consumer</module>
-        <module>provider</module>
+<!--        <module>consumer</module>-->
+<!--        <module>provider</module>-->
+        <module>order-service</module>
+        <module>user-service</module>
     </modules>
 
     <properties>

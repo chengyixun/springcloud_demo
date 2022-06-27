@@ -1,0 +1,19 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      # 路由规则1：基于服务发现的机制 eg：http://127.0.0.1:9090/order-service/order -> http://127.0.0.1:9092/order
+      discovery:
+        locator:
+          enabled: true
+      routes:   # 路由规则2：自定义路由规则
+        - predicates:
+            # localhost:9090/jack/user/hello  --->  localhost:8081/user/hello
+            - Path=/jack/**
+          filters:
+            # 表示在将请求发送到下游之前从请求中剥离的路径个数，1表示从二级url路径转发
+            - StripPrefix=1
+          uri: http://localhost:8081/

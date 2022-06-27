@@ -1,10 +1,10 @@
-package com.example.orderservice;
+package com.example.gateway;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrderServiceApplicationTests {
+class GatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
