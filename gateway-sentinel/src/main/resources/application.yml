@@ -1,0 +1,35 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: cloud-gateway-sentinel
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8858
+      scg:
+        fallback:
+          #响应模式有redirect和response
+          mode: response
+          response-status: 200
+          response-body: '{"code": 429, "message": "哥们，这瓜不熟，你走吧..."}'
+          #redirect: https://google.com
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/user/**
+        filters:
+        - AddRequestHeader=X-Request-Home, China
+      - id: order-service
+        uri: lb://order-service
+        predicates:
+        - Path=/order/**
+
+
+
+
